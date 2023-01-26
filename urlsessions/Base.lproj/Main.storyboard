@@ -17,20 +17,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-sP-dVs">
-                                <rect key="frame" x="159" y="408.66666666666669" width="75" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="QqK-C4-3vK" kind="show" id="TUA-A4-vPN"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6S9-bh-XZY">
+                                <rect key="frame" x="156.66666666666666" y="381.66666666666669" width="80" height="88.666666666666686"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-sP-dVs">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Planets"/>
+                                        <connections>
+                                            <segue destination="tvE-OF-jRP" kind="show" id="CNS-bG-p5m"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUG-KG-fSb">
+                                        <rect key="frame" x="0.0" y="54.333333333333314" width="80" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="People"/>
+                                        <connections>
+                                            <segue destination="QqK-C4-3vK" kind="show" id="SlP-Ya-ZoZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aHi-sP-dVs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0ff-RZ-gwQ"/>
-                            <constraint firstItem="aHi-sP-dVs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ckN-sQ-gvE"/>
+                            <constraint firstItem="6S9-bh-XZY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A2l-9U-AlJ"/>
+                            <constraint firstItem="6S9-bh-XZY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TIe-Z7-8Bd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1tl-BF-GWA"/>
@@ -68,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khY-4i-zGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066" y="665"/>
+            <point key="canvasLocation" x="2102" y="414"/>
         </scene>
         <!--Planets View Controller-->
         <scene sceneID="VGH-Tg-f1T">
@@ -99,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Mz-fc-E4w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935" y="4"/>
+            <point key="canvasLocation" x="2102" y="-290"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p16-gM-65j">
