@@ -12,7 +12,7 @@ enum Constants: String {
     case planetsEndpoint = "planets/"
     
     static func getURL(for constant: Constants, id: Int) -> URL {
-        var urlString = baseURL.rawValue + constant.rawValue + String(id) + "/"
+        let urlString = baseURL.rawValue + constant.rawValue + String(id) + "/"
         return URL(string: urlString)!
     }
 }
@@ -26,9 +26,10 @@ class PlanetsAPI {
     
     private let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
-    
+
+    // MARK: - Public -
+
     func fetchPlanets(id: Int, completion: @escaping (Result<Planet, APIError>) -> Void) {
-        
         performRequest(url: Constants.getURL(for: .planetsEndpoint, id: id), callback: { [weak self] result in
             guard let self else { return }
             switch result {
@@ -43,19 +44,25 @@ class PlanetsAPI {
                 completion(.failure(failure))
             }
         })
-}
-                       
-                       private func performRequest(url: URL?,  callback: @escaping (Result<Data, APIError>) -> Void) {
-            guard let url else { return }
-            
-            let session = URLSession(configuration: .default)
-            task = session.dataTask(with: url) { data, response, error in
-                if let data {
-                    callback(.success(data))
-                } else {
-                    callback(.failure(.fetchFailed))
-                }
+    }
+
+    func fetchPeople() {
+
+    }
+
+    // MARK: - Private -
+
+    private func performRequest(url: URL?,  callback: @escaping (Result<Data, APIError>) -> Void) {
+        guard let url else { return }
+
+        let session = URLSession(configuration: .default)
+        task = session.dataTask(with: url) { data, response, error in
+            if let data {
+                callback(.success(data))
+            } else {
+                callback(.failure(.fetchFailed))
             }
-            task?.resume()
         }
-                       }
+        task?.resume()
+    }
+}
