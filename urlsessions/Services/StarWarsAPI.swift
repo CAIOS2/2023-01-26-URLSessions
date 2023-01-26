@@ -18,7 +18,7 @@ enum Constants: String {
     }
 }
 
-class PlanetsAPI {
+class StarWarsAPI {
     
     enum APIError: Error {
         case parsingFailed

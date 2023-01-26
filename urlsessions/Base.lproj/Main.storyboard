@@ -25,7 +25,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Planets"/>
                                         <connections>
-                                            <segue destination="tvE-OF-jRP" kind="show" id="CNS-bG-p5m"/>
+                                            <segue destination="tvE-OF-jRP" kind="show" id="PqR-IX-RDH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUG-KG-fSb">
@@ -76,7 +76,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gaq-Hl-SRE"/>
                     <connections>
-                        <outlet property="peopleLabel" destination="10K-rV-H5i" id="T0K-XS-ycL"/>
+                        <outlet property="peopleNameLabel" destination="10K-rV-H5i" id="BVo-XP-G7J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khY-4i-zGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -107,7 +107,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fa6-Lu-QYQ"/>
                     <connections>
-                        <outlet property="textLabel" destination="lkJ-Uo-avL" id="UCc-Jy-yH2"/>
+                        <outlet property="planetNameLabel" destination="lkJ-Uo-avL" id="0gg-0U-lsl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Mz-fc-E4w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

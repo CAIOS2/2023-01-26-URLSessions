@@ -10,24 +10,24 @@ import UIKit
 class PeopleViewController: UIViewController {
     
     
-    @IBOutlet weak var peopleLabel: UILabel!
+    @IBOutlet weak var peopleNameLabel: UILabel!
     
-    let planetsAPI = PlanetsAPI()
+    let SWAPI = StarWarsAPI()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        peopleLabel.text = "Loading..."
+        peopleNameLabel.text = "Loading..."
 
-        planetsAPI.fetchPeople (id: 1){ result in
+        SWAPI.fetchPeople (id: 1){ result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
 
                 switch result {
                 case .success(let people):
-                    self.peopleLabel.text = people.name
+                    self.peopleNameLabel.text = people.name
                     print("Label set")
                 case .failure(let error):
-                    self.peopleLabel.text = error.localizedDescription
+                    self.peopleNameLabel.text = error.localizedDescription
                     print(error.localizedDescription)
                 }
             }
@@ -36,6 +36,6 @@ class PeopleViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        planetsAPI.task?.cancel()
+        SWAPI.task?.cancel()
     }
 }

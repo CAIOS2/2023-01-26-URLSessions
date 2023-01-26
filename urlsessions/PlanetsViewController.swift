@@ -9,24 +9,24 @@ import UIKit
 
 class PlanetsViewController: UIViewController {
 
-    @IBOutlet private weak var textLabel: UILabel!
+    @IBOutlet private weak var planetNameLabel: UILabel!
 
-    let planetsAPI = PlanetsAPI()
+    let SWAPI = StarWarsAPI()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        textLabel.text = "Loading..."
+        planetNameLabel.text = "Loading..."
 
-        planetsAPI.fetchPlanets (id: 2){ result in
+        SWAPI.fetchPlanets (id: 2){ result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
 
                 switch result {
                 case .success(let planet):
-                    self.textLabel.text = planet.name
+                    self.planetNameLabel.text = planet.name
                     print("Label set")
                 case .failure(let error):
-                    self.textLabel.text = error.localizedDescription
+                    self.planetNameLabel.text = error.localizedDescription
                     print(error.localizedDescription)
                 }
             }
@@ -35,6 +35,6 @@ class PlanetsViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        planetsAPI.task?.cancel()
+        SWAPI.task?.cancel()
     }
 }
