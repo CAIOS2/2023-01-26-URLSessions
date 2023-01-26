@@ -26,9 +26,8 @@ class PlanetsAPI {
     
     private let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
-    
+  
     func fetchPlanets(id: Int, completion: @escaping (Result<Planet, APIError>) -> Void) {
-        
         performRequest(url: Constants.getURL(for: .planetsEndpoint, id: id), callback: { [weak self] result in
             guard let self else { return }
             switch result {
