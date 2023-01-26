@@ -7,12 +7,21 @@
 
 import Foundation
 
+class Parameters {
+    var requestIndex: Int = 1
+}
+
+//negrazu, ne puiku
+var index = Parameters().requestIndex
+
+
 enum Constants: String {
     case baseURL = "http://swapi.dev/api/"
-    case planetsEndpoint = "planets/1/"
+    case planetsEndpoint = "planets/"
 
     static func getURL(for constant: Constants) -> URL {
-        var urlString = baseURL.rawValue + constant.rawValue
+       // var requestIndex: Int = 2
+        var urlString = baseURL.rawValue + constant.rawValue + String(index)
         return URL(string: urlString)!
     }
 }
@@ -25,9 +34,13 @@ class PlanetsAPI {
         case fetchFailed
     }
 
+    
     private let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
-
+    
+    
+   // var url = Constants.getURL(for: .planetsEndpoint) + "\(requestIndex)"
+    
     func fetchPlanets(completion: @escaping (Result<Planet, APIError>) -> Void) {
         performRequest(url: Constants.getURL(for: .planetsEndpoint)) { [weak self] result in
             guard let self else { return }
@@ -43,6 +56,8 @@ class PlanetsAPI {
                 completion(.failure(failure))
             }
         }
+        index += 1
+        
     }
 
     private func performRequest(url: URL?, callback: @escaping (Result<Data, APIError>) -> Void) {
