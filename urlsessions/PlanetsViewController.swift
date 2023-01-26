@@ -18,14 +18,14 @@ class PlanetsViewController: UIViewController {
         super.viewDidLoad()
         textLabel.text = "Loading..."
         
-        SWAPI.fetchPlanets (id: 2){ result in
+        SWAPI.fetchPlanets(id: 2) { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 
                 switch result {
                 case .success(let planet):
                     self.textLabel.text = planet.name
-                    print("Label set")
+                    print("Planet label set")
                 case .failure(let error):
                     self.textLabel.text = error.localizedDescription
                     print(error.localizedDescription)
@@ -33,14 +33,14 @@ class PlanetsViewController: UIViewController {
             }
         }
         
-        SWAPI.fetchPeople(id: 2) {  result in
+        SWAPI.fetchPeople(id: 4) {  result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 
                 switch result {
-                case .success(let planet):
-                    self.nameLabel.text = planet.name
-                    print("Label set")
+                case .success(let people):
+                    self.nameLabel.text = people.name
+                    print("Name label set")
                 case .failure(let error):
                     self.nameLabel.text = error.localizedDescription
                     print(error.localizedDescription)
