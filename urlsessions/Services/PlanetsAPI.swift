@@ -9,7 +9,9 @@ import Foundation
 
 enum Constants: String {
     case baseURL = "http://swapi.dev/api/"
-    case planetsEndpoint = "planets/1/"
+    case id1 = "planets/1/"
+    case id2 = "planets/2/"
+    case id3 = "planets/3/"
 
     static func getURL(for constant: Constants) -> URL {
         var urlString = baseURL.rawValue + constant.rawValue
@@ -29,7 +31,7 @@ class PlanetsAPI {
     private(set) var task: URLSessionDataTask?
 
     func fetchPlanets(completion: @escaping (Result<Planet, APIError>) -> Void) {
-        performRequest(url: Constants.getURL(for: .planetsEndpoint)) { [weak self] result in
+        performRequest(url: Constants.getURL(for: .id2)) { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let data):
