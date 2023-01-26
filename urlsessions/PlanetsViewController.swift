@@ -17,7 +17,7 @@ class PlanetsViewController: UIViewController {
         super.viewDidLoad()
         textLabel.text = "Loading..."
 
-        planetsAPI.fetchPlanets { result in
+        planetsAPI.fetchPlanets (id: 2){ result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
 
