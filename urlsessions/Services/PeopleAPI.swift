@@ -1,15 +1,19 @@
 //
-//  PlanetsAPI.swift
+//  PeopleAPI.swift
 //  urlsessions
 //
-//  Created by Tadas Petrikas on 2023-01-25.
+//  Created by Dmitrij Aneicik on 2023-01-26.
 //
 
 import Foundation
 
 
+import Foundation
 
-class PlanetsAPI {
+    
+
+
+class PeopleAPI {
     
     static func getURL(for constant: Constants, id: Int) -> URL {
         var urlString = Constants.baseURL.rawValue + constant.rawValue + String(id) + "/"
@@ -20,14 +24,16 @@ class PlanetsAPI {
     private let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
     
-    func fetchPlanets(id: Int, completion: @escaping (Result<Planet, APIError>) -> Void) {
-        performRequest(url: Constants.getURL(for: .planetsEndpoint, id: id), callback: { [weak self] result in
+
+    
+    func fetchPeople(id: Int, completion: @escaping (Result<People, APIError>) -> Void) {
+        performRequest(url: Constants.getURL(for: .peopleEndpoint, id: id), callback: { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let data):
                 do {
-                    let planet = try self.decoder.decode(Planet.self, from: data)
-                    completion(.success(planet))
+                    let people = try self.decoder.decode(People.self, from: data)
+                    completion(.success(people))
                 } catch {
                     completion(.failure(.parsingFailed))
                 }
@@ -36,7 +42,6 @@ class PlanetsAPI {
             }
         })
     }
-
     
     private func performRequest(url: URL?,  callback: @escaping (Result<Data, APIError>) -> Void) {
         guard let url else { return }
