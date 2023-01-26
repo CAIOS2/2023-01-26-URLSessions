@@ -9,4 +9,5 @@ import Foundation
 
 struct People: Codable {
     let name: String
+    let hairColor : String
 }

@@ -42,7 +42,9 @@ class StarWarsAPI {
     }
 
     
-    private let decoder = JSONDecoder()
+     let decoder = JSONDecoder()
+    
+
     private(set) var task: URLSessionDataTask?
 
     // MARK: - Public -
@@ -73,6 +75,7 @@ class StarWarsAPI {
             switch result {
             case .success(let data):
                 do {
+                    self.decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let people = try self.decoder.decode(People.self, from: data)
                     completion(.success(people))
                 } catch {
@@ -92,7 +95,9 @@ class StarWarsAPI {
             case .success(let data):
                 do {
                     print(data)
+                    self.decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let peopleList = try self.decoder.decode(PeopleList.self, from: data)
+                    
                     completion(.success(peopleList))
                 } catch {
                     completion(.failure(.parsingFailed))
