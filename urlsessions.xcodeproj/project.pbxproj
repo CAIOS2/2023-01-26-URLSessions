@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F08EABF2982F65F00272DFB /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08EABE2982F65F00272DFB /* People.swift */; };
 		3F08EAC12982F75E00272DFB /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08EAC02982F75E00272DFB /* PeopleViewController.swift */; };
+		47DC0374298307B70034430A /* PeopleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DC0373298307B70034430A /* PeopleList.swift */; };
 		A067F0F52981A2630047A21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F42981A2630047A21B /* AppDelegate.swift */; };
 		A067F0F72981A2630047A21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F62981A2630047A21B /* SceneDelegate.swift */; };
 		A067F0F92981A2630047A21B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F82981A2630047A21B /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		3F08EABE2982F65F00272DFB /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		3F08EAC02982F75E00272DFB /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		47DC0373298307B70034430A /* PeopleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleList.swift; sourceTree = "<group>"; };
 		A067F0F12981A2630047A21B /* urlsessions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = urlsessions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A067F0F42981A2630047A21B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A067F0F62981A2630047A21B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				A067F10E2981B9DC0047A21B /* Planet.swift */,
 				3F08EABE2982F65F00272DFB /* People.swift */,
+				47DC0373298307B70034430A /* PeopleList.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				A067F1092981B4D10047A21B /* PlanetsViewController.swift in Sources */,
 				3F08EAC12982F75E00272DFB /* PeopleViewController.swift in Sources */,
 				A067F0F92981A2630047A21B /* ViewController.swift in Sources */,
+				47DC0374298307B70034430A /* PeopleList.swift in Sources */,
 				A067F0F52981A2630047A21B /* AppDelegate.swift in Sources */,
 				A067F10F2981B9DC0047A21B /* Planet.swift in Sources */,
 				A067F10B2981B55F0047A21B /* StarWarsAPI.swift in Sources */,

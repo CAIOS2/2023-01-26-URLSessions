@@ -21,7 +21,14 @@ enum Constants: String {
     case peopleEndpoint = "people/"
     
     static func getURL(for constant: Constants, id: Int) -> URL {
-        let urlString = baseURL.rawValue + constant.rawValue + String(id) + "/"
+        var urlEnd: String = ""
+        if id == 0 {
+            urlEnd = ""
+        } else {
+            urlEnd = String(id) + "/"
+        }
+        
+        let urlString = baseURL.rawValue + constant.rawValue + urlEnd
 
         return URL(string: urlString)!
     }
@@ -68,6 +75,25 @@ class StarWarsAPI {
                 do {
                     let people = try self.decoder.decode(People.self, from: data)
                     completion(.success(people))
+                } catch {
+                    completion(.failure(.parsingFailed))
+                }
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
+        })
+}
+    
+    func fetchPeoplesList( completion: @escaping (Result<PeopleList, APIError>) -> Void) {
+        
+        performRequest(url: Constants.getURL(for: .peopleEndpoint, id: 0), callback: { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let data):
+                do {
+                    print(data)
+                    let peopleList = try self.decoder.decode(PeopleList.self, from: data)
+                    completion(.success(peopleList))
                 } catch {
                     completion(.failure(.parsingFailed))
                 }

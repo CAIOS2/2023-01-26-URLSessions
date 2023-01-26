@@ -18,20 +18,40 @@ class PeopleViewController: UIViewController {
         super.viewDidLoad()
         peopleNameLabel.text = "Loading..."
 
-        SWAPI.fetchPeople (id: 1){ result in
+//        SWAPI.fetchPeople (id: 1){ result in
+//            DispatchQueue.main.async { [weak self] in
+//                guard let self = self else { return }
+//
+//                switch result {
+//                case .success(let people):
+//                    self.peopleNameLabel.text = people.name
+//                    print("Label set")
+//                case .failure(let error):
+//                    self.peopleNameLabel.text = error.localizedDescription
+//                    print(error.localizedDescription)
+//                }
+//            }
+//        }
+        
+        SWAPI.fetchPeoplesList (){ result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
 
                 switch result {
                 case .success(let people):
-                    self.peopleNameLabel.text = people.name
-                    print("Label set")
+                   // guard people = people else {return}
+                    
+                    self.peopleNameLabel.text = people.results.first?.name ?? "???"
+                    print("Label set \(people)")
+                    
+                    
                 case .failure(let error):
                     self.peopleNameLabel.text = error.localizedDescription
                     print(error.localizedDescription)
                 }
             }
         }
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
