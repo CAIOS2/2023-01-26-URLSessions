@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WNn-fu-7fN">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,20 +17,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-sP-dVs">
-                                <rect key="frame" x="159" y="408.66666666666669" width="75" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="tvE-OF-jRP" kind="show" id="ddU-9b-E5g"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6S9-bh-XZY">
+                                <rect key="frame" x="156.66666666666666" y="381.66666666666669" width="80" height="88.666666666666686"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-sP-dVs">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Planets"/>
+                                        <connections>
+                                            <segue destination="tvE-OF-jRP" kind="show" id="PqR-IX-RDH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUG-KG-fSb">
+                                        <rect key="frame" x="0.0" y="54.333333333333314" width="80" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="People"/>
+                                        <connections>
+                                            <segue destination="QqK-C4-3vK" kind="show" id="SlP-Ya-ZoZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aHi-sP-dVs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0ff-RZ-gwQ"/>
-                            <constraint firstItem="aHi-sP-dVs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ckN-sQ-gvE"/>
+                            <constraint firstItem="6S9-bh-XZY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A2l-9U-AlJ"/>
+                            <constraint firstItem="6S9-bh-XZY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="TIe-Z7-8Bd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1tl-BF-GWA"/>
@@ -37,6 +51,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1066.4122137404579" y="3.5211267605633805"/>
+        </scene>
+        <!--People View Controller-->
+        <scene sceneID="T9E-u0-WsJ">
+            <objects>
+                <viewController id="QqK-C4-3vK" customClass="PeopleViewController" customModule="urlsessions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bn2-x2-2sz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10K-rV-H5i">
+                                <rect key="frame" x="175.66666666666666" y="415.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jyp-Bl-Ybt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="10K-rV-H5i" firstAttribute="centerY" secondItem="bn2-x2-2sz" secondAttribute="centerY" id="3ie-nz-PVc"/>
+                            <constraint firstItem="10K-rV-H5i" firstAttribute="centerX" secondItem="bn2-x2-2sz" secondAttribute="centerX" id="Sdc-jk-Jnl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gaq-Hl-SRE"/>
+                    <connections>
+                        <outlet property="peopleNameLabel" destination="10K-rV-H5i" id="BVo-XP-G7J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="khY-4i-zGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2102" y="414"/>
         </scene>
         <!--Planets View Controller-->
         <scene sceneID="VGH-Tg-f1T">
@@ -62,12 +107,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fa6-Lu-QYQ"/>
                     <connections>
-                        <outlet property="textLabel" destination="lkJ-Uo-avL" id="UCc-Jy-yH2"/>
+                        <outlet property="planetNameLabel" destination="lkJ-Uo-avL" id="0gg-0U-lsl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Mz-fc-E4w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935" y="4"/>
+            <point key="canvasLocation" x="2102" y="-290"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p16-gM-65j">

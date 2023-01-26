@@ -10,6 +10,7 @@ import Foundation
 enum Constants: String {
     case baseURL = "http://swapi.dev/api/"
     case planetsEndpoint = "planets/"
+    case peopleEndpoint = "people/"
     
     static func getURL(for constant: Constants, id: Int) -> URL {
         let urlString = baseURL.rawValue + constant.rawValue + String(id) + "/"
@@ -17,7 +18,7 @@ enum Constants: String {
     }
 }
 
-class PlanetsAPI {
+class StarWarsAPI {
     
     enum APIError: Error {
         case parsingFailed
@@ -46,9 +47,22 @@ class PlanetsAPI {
         })
     }
 
-    func fetchPeople() {
-
-    }
+    func fetchPeople(id: Int, completion: @escaping (Result<People, APIError>) -> Void) {
+        performRequest(url: Constants.getURL(for: .peopleEndpoint, id: id), callback: { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let data):
+                do {
+                    let people = try self.decoder.decode(People.self, from: data)
+                    completion(.success(people))
+                } catch {
+                    completion(.failure(.parsingFailed))
+                }
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
+        })
+}
 
     // MARK: - Private -
 
