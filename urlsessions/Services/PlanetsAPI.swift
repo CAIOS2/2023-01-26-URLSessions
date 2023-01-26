@@ -19,16 +19,16 @@ enum Constants: String {
     case baseURL = "http://swapi.dev/api/"
     case planetsEndpoint = "planets/"
 
-    static func getURL(for constant: Constants) -> URL {
-       // var requestIndex: Int = 2
-        var urlString = baseURL.rawValue + constant.rawValue + String(index)
+    
+    static func getURL(for constant: Constants, id: Int) -> URL {
+        let urlString = baseURL.rawValue + constant.rawValue + String(id) + "/"
+
         return URL(string: urlString)!
     }
 }
 
-
 class PlanetsAPI {
-
+    
     enum APIError: Error {
         case parsingFailed
         case fetchFailed
@@ -37,12 +37,12 @@ class PlanetsAPI {
     
     private let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
-    
-    
-   // var url = Constants.getURL(for: .planetsEndpoint) + "\(requestIndex)"
-    
-    func fetchPlanets(completion: @escaping (Result<Planet, APIError>) -> Void) {
-        performRequest(url: Constants.getURL(for: .planetsEndpoint)) { [weak self] result in
+
+    // MARK: - Public -
+
+    func fetchPlanets(id: Int, completion: @escaping (Result<Planet, APIError>) -> Void) {
+        performRequest(url: Constants.getURL(for: .planetsEndpoint, id: id), callback: { [weak self] result in
+
             guard let self else { return }
             switch result {
             case .success(let data):
@@ -55,12 +55,18 @@ class PlanetsAPI {
             case .failure(let failure):
                 completion(.failure(failure))
             }
-        }
-        index += 1
-        
+
+        })
+
     }
 
-    private func performRequest(url: URL?, callback: @escaping (Result<Data, APIError>) -> Void) {
+    func fetchPeople() {
+
+    }
+
+    // MARK: - Private -
+
+    private func performRequest(url: URL?,  callback: @escaping (Result<Data, APIError>) -> Void) {
         guard let url else { return }
 
         let session = URLSession(configuration: .default)
