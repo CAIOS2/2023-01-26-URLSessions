@@ -12,9 +12,12 @@ enum Constants: String {
     case planetsEndpoint = "planets/"
     case peopleEndpoint = "people/"
     
-    static func getURL(for constant: Constants, id: Int) -> URL {
-        let urlString = baseURL.rawValue + constant.rawValue + String(id) + "/"
-        return URL(string: urlString)!
+    static func getURL(for constant: Constants, id: Int? = nil) -> URL {
+        var baseEndpointURL = baseURL.rawValue + constant.rawValue
+        if let id {
+            baseEndpointURL = baseEndpointURL + String(id) + "/"
+        }
+        return URL(string: baseEndpointURL)!
     }
 }
 
@@ -47,6 +50,27 @@ class StarWarsAPI {
         })
     }
 
+    func fetchPeople(completion: @escaping (Result<[People], APIError>) -> Void) {
+        performRequest(url: Constants.getURL(for: .peopleEndpoint), callback: { [weak self] result in
+            guard let self else { return }
+
+            struct Data: Decodable {
+                let results: [People]
+            }
+            switch result {
+            case .success(let data):
+                do {
+                    let parsedData = try self.decoder.decode(Data.self, from: data)
+                    completion(.success(parsedData.results))
+                } catch {
+                    completion(.failure(.parsingFailed))
+                }
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
+        })
+    }
+
     func fetchPeople(id: Int, completion: @escaping (Result<People, APIError>) -> Void) {
         performRequest(url: Constants.getURL(for: .peopleEndpoint, id: id), callback: { [weak self] result in
             guard let self else { return }
@@ -62,7 +86,7 @@ class StarWarsAPI {
                 completion(.failure(failure))
             }
         })
-}
+    }
 
     // MARK: - Private -
 

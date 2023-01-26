@@ -60,23 +60,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10K-rV-H5i">
-                                <rect key="frame" x="175.66666666666666" y="415.66666666666669" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mjp-7A-qhW">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="peopleCell" id="JVf-0k-qJt">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JVf-0k-qJt" id="xIl-xm-DTG">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QqK-C4-3vK" id="B9b-w6-7xX"/>
+                                    <outlet property="delegate" destination="QqK-C4-3vK" id="51W-PK-srp"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jyp-Bl-Ybt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="10K-rV-H5i" firstAttribute="centerY" secondItem="bn2-x2-2sz" secondAttribute="centerY" id="3ie-nz-PVc"/>
-                            <constraint firstItem="10K-rV-H5i" firstAttribute="centerX" secondItem="bn2-x2-2sz" secondAttribute="centerX" id="Sdc-jk-Jnl"/>
+                            <constraint firstItem="jyp-Bl-Ybt" firstAttribute="bottom" secondItem="mjp-7A-qhW" secondAttribute="bottom" id="09P-tV-rVv"/>
+                            <constraint firstItem="mjp-7A-qhW" firstAttribute="top" secondItem="jyp-Bl-Ybt" secondAttribute="top" id="3iU-Mb-JHl"/>
+                            <constraint firstItem="mjp-7A-qhW" firstAttribute="leading" secondItem="jyp-Bl-Ybt" secondAttribute="leading" id="glG-rN-X0C"/>
+                            <constraint firstItem="jyp-Bl-Ybt" firstAttribute="trailing" secondItem="mjp-7A-qhW" secondAttribute="trailing" id="tCX-le-MUV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gaq-Hl-SRE"/>
                     <connections>
-                        <outlet property="peopleNameLabel" destination="10K-rV-H5i" id="BVo-XP-G7J"/>
+                        <outlet property="tableView" destination="mjp-7A-qhW" id="tHz-pJ-e5c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khY-4i-zGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
