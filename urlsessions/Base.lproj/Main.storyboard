@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WNn-fu-7fN">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -21,7 +22,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="tvE-OF-jRP" kind="show" id="ddU-9b-E5g"/>
+                                    <segue destination="QqK-C4-3vK" kind="show" id="TUA-A4-vPN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -37,6 +38,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1066.4122137404579" y="3.5211267605633805"/>
+        </scene>
+        <!--People View Controller-->
+        <scene sceneID="T9E-u0-WsJ">
+            <objects>
+                <viewController id="QqK-C4-3vK" customClass="PeopleViewController" customModule="urlsessions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bn2-x2-2sz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10K-rV-H5i">
+                                <rect key="frame" x="175.66666666666666" y="415.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jyp-Bl-Ybt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="10K-rV-H5i" firstAttribute="centerY" secondItem="bn2-x2-2sz" secondAttribute="centerY" id="3ie-nz-PVc"/>
+                            <constraint firstItem="10K-rV-H5i" firstAttribute="centerX" secondItem="bn2-x2-2sz" secondAttribute="centerX" id="Sdc-jk-Jnl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gaq-Hl-SRE"/>
+                    <connections>
+                        <outlet property="peopleLabel" destination="10K-rV-H5i" id="T0K-XS-ycL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="khY-4i-zGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066" y="665"/>
         </scene>
         <!--Planets View Controller-->
         <scene sceneID="VGH-Tg-f1T">
