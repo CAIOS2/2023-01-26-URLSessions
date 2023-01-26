@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11F11CE52982F65E005BA6E7 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F11CE42982F65E005BA6E7 /* People.swift */; };
 		A067F0F52981A2630047A21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F42981A2630047A21B /* AppDelegate.swift */; };
 		A067F0F72981A2630047A21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F62981A2630047A21B /* SceneDelegate.swift */; };
 		A067F0F92981A2630047A21B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F82981A2630047A21B /* ViewController.swift */; };
@@ -14,11 +15,12 @@
 		A067F0FE2981A2640047A21B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A067F0FD2981A2640047A21B /* Assets.xcassets */; };
 		A067F1012981A2640047A21B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A067F0FF2981A2640047A21B /* LaunchScreen.storyboard */; };
 		A067F1092981B4D10047A21B /* PlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F1082981B4D10047A21B /* PlanetsViewController.swift */; };
-		A067F10B2981B55F0047A21B /* PlanetsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F10A2981B55F0047A21B /* PlanetsAPI.swift */; };
+		A067F10B2981B55F0047A21B /* StarWarsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F10A2981B55F0047A21B /* StarWarsAPI.swift */; };
 		A067F10F2981B9DC0047A21B /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F10E2981B9DC0047A21B /* Planet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11F11CE42982F65E005BA6E7 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		A067F0F12981A2630047A21B /* urlsessions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = urlsessions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A067F0F42981A2630047A21B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A067F0F62981A2630047A21B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,7 +30,7 @@
 		A067F1002981A2640047A21B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A067F1022981A2640047A21B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A067F1082981B4D10047A21B /* PlanetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewController.swift; sourceTree = "<group>"; };
-		A067F10A2981B55F0047A21B /* PlanetsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsAPI.swift; sourceTree = "<group>"; };
+		A067F10A2981B55F0047A21B /* StarWarsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsAPI.swift; sourceTree = "<group>"; };
 		A067F10E2981B9DC0047A21B /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,7 +81,7 @@
 		A067F10C2981B5720047A21B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A067F10A2981B55F0047A21B /* PlanetsAPI.swift */,
+				A067F10A2981B55F0047A21B /* StarWarsAPI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				A067F10E2981B9DC0047A21B /* Planet.swift */,
+				11F11CE42982F65E005BA6E7 /* People.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -167,8 +170,9 @@
 				A067F0F92981A2630047A21B /* ViewController.swift in Sources */,
 				A067F0F52981A2630047A21B /* AppDelegate.swift in Sources */,
 				A067F10F2981B9DC0047A21B /* Planet.swift in Sources */,
-				A067F10B2981B55F0047A21B /* PlanetsAPI.swift in Sources */,
+				A067F10B2981B55F0047A21B /* StarWarsAPI.swift in Sources */,
 				A067F0F72981A2630047A21B /* SceneDelegate.swift in Sources */,
+				11F11CE52982F65E005BA6E7 /* People.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

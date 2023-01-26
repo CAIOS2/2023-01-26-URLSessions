@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WNn-fu-7fN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WNn-fu-7fN">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -52,16 +53,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3g-nJ-nxC">
+                                <rect key="frame" x="175.66666666666666" y="344.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="idd-fJ-7bf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="lkJ-Uo-avL" firstAttribute="top" secondItem="h3g-nJ-nxC" secondAttribute="bottom" constant="50" id="IWN-7L-Hcm"/>
                             <constraint firstItem="lkJ-Uo-avL" firstAttribute="centerY" secondItem="JT1-2z-rdC" secondAttribute="centerY" id="Vc3-hv-qtx"/>
+                            <constraint firstItem="h3g-nJ-nxC" firstAttribute="centerX" secondItem="JT1-2z-rdC" secondAttribute="centerX" id="nkp-20-aTM"/>
                             <constraint firstItem="lkJ-Uo-avL" firstAttribute="centerX" secondItem="JT1-2z-rdC" secondAttribute="centerX" id="xz2-WN-EL0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fa6-Lu-QYQ"/>
                     <connections>
+                        <outlet property="nameLabel" destination="h3g-nJ-nxC" id="leS-sg-qxk"/>
                         <outlet property="textLabel" destination="lkJ-Uo-avL" id="UCc-Jy-yH2"/>
                     </connections>
                 </viewController>
