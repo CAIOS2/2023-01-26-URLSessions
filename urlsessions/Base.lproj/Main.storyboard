@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6S9-bh-XZY">
-                                <rect key="frame" x="156.66666666666666" y="381.66666666666669" width="80" height="88.666666666666686"/>
+                                <rect key="frame" x="125.00000000000001" y="354.66666666666669" width="143.33333333333337" height="143"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-sP-dVs">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="143.33333333333334" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Planets"/>
                                         <connections>
@@ -29,11 +29,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUG-KG-fSb">
-                                        <rect key="frame" x="0.0" y="54.333333333333314" width="80" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="54.333333333333314" width="143.33333333333334" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="People"/>
                                         <connections>
                                             <segue destination="QqK-C4-3vK" kind="show" id="SlP-Ya-ZoZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwg-Ng-7GF">
+                                        <rect key="frame" x="0.0" y="108.66666666666663" width="143.33333333333334" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Detailed People"/>
+                                        <connections>
+                                            <segue destination="SLb-06-V0r" kind="show" id="D0b-fJ-nxZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -95,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khY-4i-zGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="414"/>
+            <point key="canvasLocation" x="2005" y="413"/>
         </scene>
         <!--Planets View Controller-->
         <scene sceneID="VGH-Tg-f1T">
@@ -145,6 +153,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6NG-Dm-e3A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
+        </scene>
+        <!--People Plus View Controller-->
+        <scene sceneID="Z5m-VP-rKm">
+            <objects>
+                <viewController id="SLb-06-V0r" customClass="PeoplePlusViewController" customModule="urlsessions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z2C-nS-X9e">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJk-SB-pXB">
+                                <rect key="frame" x="176" y="416" width="41.333333333333343" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dby-JR-dnP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oJk-SB-pXB" firstAttribute="centerX" secondItem="Z2C-nS-X9e" secondAttribute="centerX" id="exA-pZ-bOG"/>
+                            <constraint firstItem="oJk-SB-pXB" firstAttribute="centerY" secondItem="Z2C-nS-X9e" secondAttribute="centerY" id="kqL-Iw-2wz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NBT-cn-boq"/>
+                    <connections>
+                        <outlet property="label" destination="oJk-SB-pXB" id="9MW-6t-Z3A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yaY-Pf-emI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2948.8549618320608" y="-290.14084507042253"/>
         </scene>
     </scenes>
     <resources>

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F08EABF2982F65F00272DFB /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08EABE2982F65F00272DFB /* People.swift */; };
 		3F08EAC12982F75E00272DFB /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08EAC02982F75E00272DFB /* PeopleViewController.swift */; };
+		846850AD2984276F000EFE64 /* PeoplePlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846850AC2984276F000EFE64 /* PeoplePlus.swift */; };
+		846850AF29842933000EFE64 /* PeoplePlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846850AE29842933000EFE64 /* PeoplePlusViewController.swift */; };
 		A067F0F52981A2630047A21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F42981A2630047A21B /* AppDelegate.swift */; };
 		A067F0F72981A2630047A21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F62981A2630047A21B /* SceneDelegate.swift */; };
 		A067F0F92981A2630047A21B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F82981A2630047A21B /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		3F08EABE2982F65F00272DFB /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		3F08EAC02982F75E00272DFB /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		846850AC2984276F000EFE64 /* PeoplePlus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeoplePlus.swift; sourceTree = "<group>"; };
+		846850AE29842933000EFE64 /* PeoplePlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeoplePlusViewController.swift; sourceTree = "<group>"; };
 		A067F0F12981A2630047A21B /* urlsessions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = urlsessions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A067F0F42981A2630047A21B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A067F0F62981A2630047A21B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 				A067F0F82981A2630047A21B /* ViewController.swift */,
 				3F08EAC02982F75E00272DFB /* PeopleViewController.swift */,
 				A067F1082981B4D10047A21B /* PlanetsViewController.swift */,
+				846850AE29842933000EFE64 /* PeoplePlusViewController.swift */,
 				A067F10D2981B57E0047A21B /* DataModels */,
 				A067F10C2981B5720047A21B /* Services */,
 				A067F0FD2981A2640047A21B /* Assets.xcassets */,
@@ -94,6 +99,7 @@
 			children = (
 				A067F10E2981B9DC0047A21B /* Planet.swift */,
 				3F08EABE2982F65F00272DFB /* People.swift */,
+				846850AC2984276F000EFE64 /* PeoplePlus.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -171,10 +177,12 @@
 			files = (
 				A067F1092981B4D10047A21B /* PlanetsViewController.swift in Sources */,
 				3F08EAC12982F75E00272DFB /* PeopleViewController.swift in Sources */,
+				846850AD2984276F000EFE64 /* PeoplePlus.swift in Sources */,
 				A067F0F92981A2630047A21B /* ViewController.swift in Sources */,
 				A067F0F52981A2630047A21B /* AppDelegate.swift in Sources */,
 				A067F10F2981B9DC0047A21B /* Planet.swift in Sources */,
 				A067F10B2981B55F0047A21B /* StarWarsAPI.swift in Sources */,
+				846850AF29842933000EFE64 /* PeoplePlusViewController.swift in Sources */,
 				A067F0F72981A2630047A21B /* SceneDelegate.swift in Sources */,
 				3F08EABF2982F65F00272DFB /* People.swift in Sources */,
 			);
