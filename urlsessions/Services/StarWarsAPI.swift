@@ -28,12 +28,12 @@ class StarWarsAPI {
         case fetchFailed
     }
     
-    init () {
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-    }
     
     let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
+    
+
+
 
     // MARK: - Public -
 
