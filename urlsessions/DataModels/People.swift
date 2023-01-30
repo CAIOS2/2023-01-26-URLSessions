@@ -9,4 +9,13 @@ import Foundation
 
 struct People: Codable {
     let name: String
+    let hairColor: String
+    let eyesColor: String
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case hairColor = "hair_color"
+        case eyesColor = "eye_color"
+    }
 }

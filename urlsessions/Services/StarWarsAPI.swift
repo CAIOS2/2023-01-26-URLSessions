@@ -32,7 +32,10 @@ class StarWarsAPI {
     private(set) var task: URLSessionDataTask?
 
     // MARK: - Public -
-
+    init() {
+//        decoder.keyDecodingStrategy = .convertFromSnakeCase
+    }
+    
     func fetchPlanets(id: Int, completion: @escaping (Result<Planet, APIError>) -> Void) {
         performRequest(url: Constants.getURL(for: .planetsEndpoint, id: id), callback: { [weak self] result in
             guard let self else { return }
