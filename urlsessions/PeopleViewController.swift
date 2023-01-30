@@ -74,7 +74,7 @@ extension PeopleViewController: UITableViewDataSource {
             return cell
         }
         let name = person.name
-        let hairs = person.hairs
+        let hairs = person.hairs.reduce("", + )
         let mass = person.mass
         let height = person.height
         cell.textLabel?.text = "\(name) | \(mass) | \(hairs) | \(height)"

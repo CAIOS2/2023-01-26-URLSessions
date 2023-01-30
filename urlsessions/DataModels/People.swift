@@ -22,11 +22,15 @@ struct People: Codable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        
         name = try values.decode(String.self, forKey: .name)
+        
         let hairsValue = try values.decode(String.self, forKey: .hairs)
-        hairs = hairsValue.split(separator: ";").map {String($0) }
+        hairs = hairsValue.split(separator: ",").map { String($0) }
+        
         let massValue = try values.decode(String.self, forKey: .mass)
         mass = Int(massValue) ?? 0
+        
         let heightValue = try values.decode(String.self, forKey: .height)
         height = Int(heightValue) ?? 0
         
