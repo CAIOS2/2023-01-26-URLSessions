@@ -37,9 +37,11 @@ class StarWarsAPI {
     }
 
     
-     let decoder = JSONDecoder()
+    init () {
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+    }
     
-
+    let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
 
     // MARK: - Public -
