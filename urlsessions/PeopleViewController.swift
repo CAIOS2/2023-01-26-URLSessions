@@ -73,7 +73,7 @@ extension PeopleViewController: UITableViewDataSource {
       guard let person = tableData?[indexPath.row] else {
         return cell
       }
-      let text = "Name: \(person.name) Birth Year: \(person.eyes) Hair Color: \(person.hair)"
+      let text = "Name: \(person.name) Birth Year: \(person.year) Hair Color: \(person.hair)"
         cell.textLabel?.text = text
         return cell
     }
