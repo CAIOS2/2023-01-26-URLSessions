@@ -67,17 +67,23 @@ extension PeopleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableData?.count ?? 0
     }
+        
+            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "peopleCell", for: indexPath)
+                
+                guard let person = tableData?[indexPath.row] else {return cell}
+                let name = person.name
+                let birthYear = person.birthYear
+                let eyes = person.eyes
+                let hair = person.hairs.reduce("", + )
+                let mass = person.mass
+                let height = person.height
+                
+                
+                cell.textLabel?.text = "\(name) Year: \(birthYear) Hair color: \(hair)"
+                cell.detailTextLabel?.text = "Eyes: \(eyes) Height: \(height) Mass: \(mass)"
+                return cell
+            }
+        }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "peopleCell", for: indexPath)
-        guard let person = tableData?[indexPath.row] else {
-               return cell
-           }
-           let name = person.name
-           let birthYear = person.birthYear
-           let hair = person.hair
-           let eyes = person.eyes
-           cell.textLabel?.text = "\(name) | \(birthYear) | \(hair) | \(eyes)"
-        return cell
-    }
-}
+
