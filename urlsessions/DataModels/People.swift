@@ -8,6 +8,7 @@
 import Foundation
 
 struct People: Codable {
+
   let name: String
   let birthYear: String
   let eyes: String
@@ -20,5 +21,6 @@ struct People: Codable {
     case hair = "hair_color"
     case eyes = "eye_color"
   }
+
 
 }
