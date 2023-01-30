@@ -34,7 +34,7 @@ class StarWarsAPI {
     // MARK: - Public -
 
   init() {
-    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    //decoder.keyDecodingStrategy = .convertFromSnakeCase
   }
 
     func fetchPlanets(id: Int, completion: @escaping (Result<Planet, APIError>) -> Void) {

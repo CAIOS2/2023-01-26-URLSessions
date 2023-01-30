@@ -14,8 +14,8 @@ struct People: Codable {
 
   enum CodingKeys: String, CodingKey {
     case name
-    case year = "birthYear"
-    case hair = "hairColor"
+    case year = "birth_year"
+    case hair = "hair_color"
 
   }
 }
