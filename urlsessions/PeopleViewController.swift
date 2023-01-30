@@ -70,14 +70,10 @@ extension PeopleViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "peopleCell", for: indexPath)
-        guard let person = tableData?[indexPath.row] else {
-            return cell
-        }
-        let name = person.name
-        let birth = person.birth
-        let hair = person.hair
-        let eyes = person.eyes
-        cell.textLabel?.text = "\(name) | \(birth) | \(hair) | \(eyes)"
+        let name = tableData?[indexPath.row].name ?? ""
+        let birthYear = tableData?[indexPath.row].birthYear ?? ""
+        let hairColor = tableData?[indexPath.row].hairColor ?? ""
+        cell.textLabel?.text = "\(name) Year: \(birthYear) Hair color: \(hairColor)"
         return cell
     }
 }
