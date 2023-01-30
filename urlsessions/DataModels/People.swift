@@ -10,7 +10,9 @@ import Foundation
 struct People: Codable {
     let name: String
     let hair: String
-    
+    let birthYear: String
+
+
     enum CodingKeys: String, CodingKey {
         case name
         case hair = "hair_color"
