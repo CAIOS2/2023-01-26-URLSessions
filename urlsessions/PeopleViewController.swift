@@ -47,7 +47,7 @@ class PeopleViewController: UIViewController {
                     self.tableData = people
 
                 case .failure(let error):
-                    // Present error
+                    // Present error and crash app (false always crash with fatal error)
                     assert(false, "Fetch error!")
                     print(error.localizedDescription)
                 }
@@ -71,7 +71,7 @@ extension PeopleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "peopleCell", for: indexPath)
       guard let person = tableData?[indexPath.row] else { return cell }
-      let text = "Name: \(person.name) Birth Year: \(person.birthYear) Hair color: \(person.hairColor)"
+      let text = "\(person.name) \(person.birthYear) \(person.eyes) \(person.hair)"
         cell.textLabel?.text = text
         return cell
     }
