@@ -17,12 +17,14 @@ class PeoplePlusViewController: UIViewController {
         super.viewDidLoad()
         label.text = "Loading..."
         
-        SWAPI.fetchPersonDetails(id: 2) { result in DispatchQueue.main.async { [weak self] in
+        SWAPI.fetchPersonDetails(id: 2) {( result: Result<PeoplePlus, StarWarsAPI.APIError>) -> Void in
+            DispatchQueue.main.async { [weak self] in
+            
             guard let self = self else { return }
             
             switch result {
             case .success(let person):
-                self.label.text = "Name: " + person.name + "\n" + "Hair color: " + person.hair + "\n" + "Skin color: " + person.eyes
+                self.label.text = "Name: " + person.name + "\n" + "Hair color: " + person.hairs + "\n" + "Skin color: " + person.skinColor
             case .failure(let error):
                 self.label.text = error.localizedDescription
             }

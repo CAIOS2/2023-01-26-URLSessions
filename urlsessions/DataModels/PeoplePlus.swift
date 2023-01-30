@@ -9,12 +9,28 @@ import Foundation
 
 struct PeoplePlus: Decodable {
     let name: String
-    let hair: String
+    let hairs: [String]
     let eyes: String
+    let mass: Int
+    let height: Int
     
     enum CodingKeys: String, CodingKey {
         case name
         case eyes = "eyeColor"
-        case hair = "hairColor"
+        case hairs = "hairColor"
+        case mass
+        case height
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        mass = try values.decode(Int.self, forKey: .mass)
+        height = try values.decode(Int.self, forKey: .height)
+        
+        let hair = try values.decode(String.self, forKey: .hairs)
+        
+        hairs = hair.components(separatedBy: ", ")
+        name = try values.decode(String.self, forKey: .name)
+        eyes = try values.decode(String.self, forKey: .eyes)
     }
 }

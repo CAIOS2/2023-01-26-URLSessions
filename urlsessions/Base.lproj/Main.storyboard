@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6S9-bh-XZY">
-                                <rect key="frame" x="125.00000000000001" y="354.66666666666669" width="143.33333333333337" height="143"/>
+                                <rect key="frame" x="125.00000000000001" y="327.33333333333331" width="143.33333333333337" height="197.33333333333331"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-sP-dVs">
                                         <rect key="frame" x="0.0" y="0.0" width="143.33333333333334" height="34.333333333333336"/>
@@ -29,7 +29,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUG-KG-fSb">
-                                        <rect key="frame" x="0.0" y="54.333333333333314" width="143.33333333333334" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="54.333333333333371" width="143.33333333333334" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="People"/>
                                         <connections>
@@ -37,11 +37,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwg-Ng-7GF">
-                                        <rect key="frame" x="0.0" y="108.66666666666663" width="143.33333333333334" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="108.66666666666669" width="143.33333333333334" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Detailed People"/>
                                         <connections>
                                             <segue destination="SLb-06-V0r" kind="show" id="D0b-fJ-nxZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doA-jI-JIT">
+                                        <rect key="frame" x="0.0" y="163" width="143.33333333333334" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Film Producers"/>
+                                        <connections>
+                                            <segue destination="J64-cl-cKN" kind="show" id="NZD-el-btb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -184,6 +192,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaY-Pf-emI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2948.8549618320608" y="-290.14084507042253"/>
+        </scene>
+        <!--Film Producers View Controller-->
+        <scene sceneID="Of9-0Y-MnC">
+            <objects>
+                <viewController id="J64-cl-cKN" customClass="FilmProducersViewController" customModule="urlsessions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ma-kZ-W4s">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oih-wU-TXk">
+                                <rect key="frame" x="176" y="416" width="41.333333333333343" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bXh-Ms-SL6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oih-wU-TXk" firstAttribute="centerY" secondItem="0Ma-kZ-W4s" secondAttribute="centerY" id="CVr-LC-2wc"/>
+                            <constraint firstItem="oih-wU-TXk" firstAttribute="centerX" secondItem="0Ma-kZ-W4s" secondAttribute="centerX" id="Hnr-Hc-Vgl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lc1-W8-bdN"/>
+                    <connections>
+                        <outlet property="label" destination="oih-wU-TXk" id="sTa-B4-dFg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V2J-2G-Ze8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3769" y="-290"/>
         </scene>
     </scenes>
     <resources>

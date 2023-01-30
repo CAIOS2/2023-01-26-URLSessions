@@ -11,6 +11,7 @@ enum Constants: String {
     case baseURL = "http://swapi.dev/api/"
     case planetsEndpoint = "planets/"
     case peopleEndpoint = "people/"
+    case filmsEndpoint = "films/"
     
     static func getURL(for constant: Constants, id: Int? = nil) -> URL {
         var baseEndpointURL = baseURL.rawValue + constant.rawValue
@@ -103,6 +104,25 @@ class StarWarsAPI {
                     let people = try self.decoder.decode(PeoplePlus.self,
                                                          from: data)
                     completion(.success(people))
+                } catch {
+                    completion(.failure(.parsingFailed))
+                }
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
+        })
+    }
+    
+    func fetchFilmProducers(id: Int, completion: @escaping (Result<Film, APIError>) -> Void) {
+        performRequest(url: Constants.getURL(for: .filmsEndpoint, id: id), callback: { [weak self] result in
+            guard let self else {return}
+
+            switch result {
+            case .success(let data):
+                do {
+                    let film = try self.decoder.decode(Film.self,
+                                                         from: data)
+                    completion(.success(film))
                 } catch {
                     completion(.failure(.parsingFailed))
                 }
