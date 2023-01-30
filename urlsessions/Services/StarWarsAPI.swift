@@ -37,20 +37,20 @@ class StarWarsAPI {
         case parsingFailed
         case fetchFailed
     }
-
+    
     
     
     let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
     
-
-
-
+    
+    
+    
     // MARK: - Public -
-
+    
     func fetchPlanets(id: Int, completion: @escaping (Result<Planet, APIError>) -> Void) {
         performRequest(url: Constants.getURL(for: .planetsEndpoint, id: id), callback: { [weak self] result in
-
+            
             guard let self else { return }
             switch result {
             case .success(let data):
@@ -63,15 +63,15 @@ class StarWarsAPI {
             case .failure(let failure):
                 completion(.failure(failure))
             }
-
+            
         })
-
+        
     }
-
+    
     func fetchPeople(completion: @escaping (Result<[People], APIError>) -> Void) {
         performRequest(url: Constants.getURL(for: .peopleEndpoint), callback: { [weak self] result in
             guard let self else { return }
-
+            
             struct Data: Decodable {
                 let results: [People]
                 
@@ -90,7 +90,7 @@ class StarWarsAPI {
             }
         })
     }
-
+    
     func fetchPeople(id: Int, completion: @escaping (Result<People, APIError>) -> Void) {
         performRequest(url: Constants.getURL(for: .peopleEndpoint, id: id), callback: { [weak self] result in
             guard let self else { return }
@@ -108,12 +108,12 @@ class StarWarsAPI {
             }
         })
     }
-
+    
     // MARK: - Private -
-
+    
     private func performRequest(url: URL?,  callback: @escaping (Result<Data, APIError>) -> Void) {
         guard let url else { return }
-
+        
         let session = URLSession(configuration: .default)
         task = session.dataTask(with: url) { data, response, error in
             if let data {
