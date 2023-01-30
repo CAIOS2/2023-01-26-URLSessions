@@ -77,8 +77,10 @@ extension PeopleViewController: UITableViewDataSource {
         let eyes = person.eyes
         let height = person.height
         let mass = person.mass
-        cell.textLabel?.text = "\(name) Year: \(birthYear) Hair color: \(hair) Eyes: \(eyes) Height: \(height) Mass: \(mass)"
-        cell.textLabel?.font = .systemFont(ofSize: 11)
+        cell.textLabel?.text = "\(name) Year: \(birthYear) Hair color: \(hair)"
+        cell.textLabel?.font = .systemFont(ofSize: 14)
+        cell.detailTextLabel?.text = "Eyes: \(eyes) Height: \(height) Mass: \(mass)"
+        cell.detailTextLabel?.font = .systemFont(ofSize: 14)
         return cell
     }
 }
