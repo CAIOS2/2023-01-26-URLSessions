@@ -9,11 +9,12 @@ import Foundation
 
 struct PeoplePlus: Decodable {
     let name: String
-    let height: String
-    let mass: String
-    let hairColor: String
-    let skinColor: String
-    let eyeColor: String
-    let birthYear: String
-    let gender: String
+    let hair: String
+    let eyes: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case eyes = "eyeColor"
+        case hair = "hairColor"
+    }
 }

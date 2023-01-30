@@ -22,7 +22,7 @@ class PeoplePlusViewController: UIViewController {
             
             switch result {
             case .success(let person):
-                self.label.text = "Name: " + person.name + "\n" + "Hair color: " + person.hairColor + "\n" + "Skin color: " + person.skinColor
+                self.label.text = "Name: " + person.name + "\n" + "Hair color: " + person.hair + "\n" + "Skin color: " + person.eyes
             case .failure(let error):
                 self.label.text = error.localizedDescription
             }

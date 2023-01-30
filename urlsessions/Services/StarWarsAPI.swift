@@ -31,6 +31,11 @@ class StarWarsAPI {
     private let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
 
+    init() {
+        self.decoder.keyDecodingStrategy = .convertFromSnakeCase
+        self.decoder.dateDecodingStrategy = .iso8601
+    }
+    
     // MARK: - Public -
 
     func fetchPlanets(id: Int, completion: @escaping (Result<Planet, APIError>) -> Void) {
@@ -91,11 +96,12 @@ class StarWarsAPI {
     func fetchPersonDetails(id: Int, completion: @escaping (Result<PeoplePlus, APIError>) -> Void) {
         performRequest(url: Constants.getURL(for: .peopleEndpoint, id: id), callback: { [weak self] result in
             guard let self else {return}
-            self.decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
             switch result {
             case .success(let data):
                 do {
-                    let people = try self.decoder.decode(PeoplePlus.self, from: data)
+                    let people = try self.decoder.decode(PeoplePlus.self,
+                                                         from: data)
                     completion(.success(people))
                 } catch {
                     completion(.failure(.parsingFailed))
