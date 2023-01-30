@@ -29,7 +29,7 @@ class StarWarsAPI {
     }
     
     init () {
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+       // decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
     let decoder = JSONDecoder()
