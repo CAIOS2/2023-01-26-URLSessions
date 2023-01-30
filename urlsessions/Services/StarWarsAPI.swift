@@ -33,6 +33,10 @@ class StarWarsAPI {
 
     // MARK: - Public -
 
+  init() {
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+  }
+
     func fetchPlanets(id: Int, completion: @escaping (Result<Planet, APIError>) -> Void) {
         performRequest(url: Constants.getURL(for: .planetsEndpoint, id: id), callback: { [weak self] result in
             guard let self else { return }
@@ -51,6 +55,7 @@ class StarWarsAPI {
     }
 
     func fetchPeople(completion: @escaping (Result<[People], APIError>) -> Void) {
+
         performRequest(url: Constants.getURL(for: .peopleEndpoint), callback: { [weak self] result in
             guard let self else { return }
 
@@ -78,6 +83,7 @@ class StarWarsAPI {
             case .success(let data):
                 do {
                     let people = try self.decoder.decode(People.self, from: data)
+
                     completion(.success(people))
                 } catch {
                     completion(.failure(.parsingFailed))
