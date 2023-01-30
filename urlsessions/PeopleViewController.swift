@@ -48,7 +48,7 @@ class PeopleViewController: UIViewController {
 
                 case .failure(let error):
                     // Present error
-                    assert(false, "Fetch error!")
+                   // assert(false, "Fetch error!")
                     print(error.localizedDescription)
                 }
             }
@@ -72,8 +72,9 @@ extension PeopleViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "peopleCell", for: indexPath)
         let name = tableData?[indexPath.row].name ?? ""
         let birthYear = tableData?[indexPath.row].birthYear ?? ""
-        let hairColor = tableData?[indexPath.row].hairColor ?? ""
-        cell.textLabel?.text = "\(name) Year: \(birthYear) Hair color: \(hairColor)"
+        let hair = tableData?[indexPath.row].hair ?? ""
+        let eyes = tableData?[indexPath.row].eyes ?? ""
+        cell.textLabel?.text = "\(name) Year: \(birthYear) Hair color: \(hair) Eyes \(eyes)"
         return cell
     }
 }

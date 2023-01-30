@@ -28,9 +28,9 @@ class StarWarsAPI {
         case fetchFailed
     }
     
-    init () {
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-    }
+//    init () {
+//        decoder.keyDecodingStrategy = .convertFromSnakeCase
+//    }
     
     let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
@@ -67,6 +67,7 @@ class StarWarsAPI {
                     let parsedData = try self.decoder.decode(Data.self, from: data)
                     completion(.success(parsedData.results))
                 } catch {
+                    print(error)
                     completion(.failure(.parsingFailed))
                 }
             case .failure(let failure):
