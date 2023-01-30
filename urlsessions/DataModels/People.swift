@@ -11,16 +11,15 @@ struct People: Codable {
     let name: String
     let birthYear: String
     let eyes: String
-    
     let hairs: [String]
     let height: Int
     let mass: Int
+    
     
     enum CodingKeys: String, CodingKey {
         case name
         case birthYear = "birth_year"
         case eyes = "eye_color"
-        
         case hairs = "hair_color"
         case height
         case mass
