@@ -15,6 +15,8 @@ class Parameters {
 var index = Parameters().requestIndex
 
 
+
+
 enum Constants: String {
     case baseURL = "http://swapi.dev/api/"
     case planetsEndpoint = "planets/"
@@ -38,7 +40,7 @@ class StarWarsAPI {
 
     
     init () {
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+     //   decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
     let decoder = JSONDecoder()
@@ -72,6 +74,8 @@ class StarWarsAPI {
 
             struct Data: Decodable {
                 let results: [People]
+                
+                
             }
             switch result {
             case .success(let data):
