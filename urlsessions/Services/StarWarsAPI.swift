@@ -28,7 +28,11 @@ class StarWarsAPI {
         case fetchFailed
     }
     
-    private let decoder = JSONDecoder()
+    init () {
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+    }
+    
+    let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
 
     // MARK: - Public -
@@ -51,7 +55,6 @@ class StarWarsAPI {
     }
 
     func fetchPeople(completion: @escaping (Result<[People], APIError>) -> Void) {
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
         performRequest(url: Constants.getURL(for: .peopleEndpoint), callback: { [weak self] result in
             guard let self else { return }
 
