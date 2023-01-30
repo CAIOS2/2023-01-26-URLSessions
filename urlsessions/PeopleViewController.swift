@@ -76,7 +76,7 @@ extension PeopleViewController: UITableViewDataSource {
            }
            let name = person.name
            let birthYear = person.birthYear
-           let hair = person.hairs.first
+           let hair = person.hairs.reduce("", +)
            let eyes = person.eyes
            cell.textLabel?.text = "\(name) | \(birthYear) | \(hair) | \(eyes)"
         return cell
