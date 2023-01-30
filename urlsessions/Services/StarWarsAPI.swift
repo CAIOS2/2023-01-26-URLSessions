@@ -51,6 +51,7 @@ class StarWarsAPI {
     }
 
     func fetchPeople(completion: @escaping (Result<[People], APIError>) -> Void) {
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         performRequest(url: Constants.getURL(for: .peopleEndpoint), callback: { [weak self] result in
             guard let self else { return }
 
