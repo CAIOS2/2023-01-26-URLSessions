@@ -54,6 +54,7 @@ class PeopleViewController: UIViewController {
             }
         }
     }
+    
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -82,3 +83,4 @@ extension PeopleViewController: UITableViewDataSource {
         return cell
     }
 }
+

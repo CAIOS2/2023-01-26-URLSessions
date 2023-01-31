@@ -93,7 +93,33 @@ class StarWarsAPI {
         })
     }
     
-    func fetchFilm(withName filmName: String, completion: @escaping (Result<[Film], APIError>) -> Void) {
+//    func fetchFilm(withName filmName: String, completion: @escaping (Result<[Film], APIError>) -> Void) {
+//        let filmsUrl = Constants.baseURL.rawValue + Constants.filmsEndPoint.rawValue
+//
+//        var components = URLComponents(string: filmsUrl)
+//
+//        let searchQueryItem = URLQueryItem(name: "search", value: filmName)
+//
+//        components?.queryItems = [searchQueryItem]
+//
+//        performRequest(url: components?.url) { [weak self] result in
+//            guard let self else { return }
+//
+//            switch result {
+//            case .success(let data):
+//                do {
+//                    let parsedData = try self.decoder.decode(ApiData<Film>.self, from: data)
+//                    completion(.success(parsedData.results))
+//                } catch {
+//                    completion(.failure(.parsingFailed))
+//                }
+//            case .failure(let failure):
+//                completion(.failure(failure))
+//            }
+//        }
+//    }
+    
+    func fetchPeople(withName filmName: String, completion: @escaping (Result<[People], APIError>) -> Void) {
         let filmsUrl = Constants.baseURL.rawValue + Constants.filmsEndPoint.rawValue
         
         var components = URLComponents(string: filmsUrl)
@@ -108,7 +134,7 @@ class StarWarsAPI {
             switch result {
             case .success(let data):
                 do {
-                    let parsedData = try self.decoder.decode(ApiData<Film>.self, from: data)
+                    let parsedData = try self.decoder.decode(ApiData<People>.self, from: data)
                     completion(.success(parsedData.results))
                 } catch {
                     completion(.failure(.parsingFailed))

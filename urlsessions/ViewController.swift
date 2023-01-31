@@ -18,10 +18,19 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        swapi.fetchFilm(withName: "hope") { result in
+//        swapi.fetchFilm(withName: "hope") { result in
+//            switch result {
+//            case .success(let films):
+//                print(films)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+        
+        swapi.fetchPeople(withName: "R2") { result in
             switch result {
-            case .success(let films):
-                print(films)
+            case .success(let people):
+                print([people])
             case .failure(let error):
                 print(error.localizedDescription)
             }
