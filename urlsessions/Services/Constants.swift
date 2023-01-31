@@ -17,7 +17,7 @@ enum Constants: String {
     static func getURL(for constant: Constants, id: Int? = nil) -> URL {
         var baseEndpointURL = baseURL.rawValue + constant.rawValue
         if let id {
-            baseEndpointURL = baseEndpointURL + String(id) + "/"
+            baseEndpointURL = baseEndpointURL + String(id)
         }
         
         return URL(string: baseEndpointURL)!
