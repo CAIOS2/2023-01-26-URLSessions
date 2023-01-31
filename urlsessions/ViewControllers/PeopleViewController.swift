@@ -38,7 +38,7 @@ class PeopleViewController: UIViewController {
 //            }
 //        }
 
-        SWAPI.fetchPeople { result in
+        SWAPI.fetchPeople(name: "walker") { result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
 

@@ -17,19 +17,7 @@ var index = Parameters().requestIndex
 
 
 
-enum Constants: String {
-    case baseURL = "http://swapi.dev/api/"
-    case planetsEndpoint = "planets/"
-    case peopleEndpoint = "people/"
-    
-    static func getURL(for constant: Constants, id: Int? = nil) -> URL {
-        var baseEndpointURL = baseURL.rawValue + constant.rawValue
-        if let id {
-            baseEndpointURL = baseEndpointURL + String(id) + "/"
-        }
-        return URL(string: baseEndpointURL)!
-    }
-}
+
 
 class StarWarsAPI {
     
@@ -68,15 +56,27 @@ class StarWarsAPI {
         
     }
     
-    func fetchPeople(completion: @escaping (Result<[People], APIError>) -> Void) {
-        performRequest(url: Constants.getURL(for: .peopleEndpoint), callback: { [weak self] result in
+    func fetchPeople(name: String, completion: @escaping (Result<[People], APIError>) -> Void) {
+       
+        
+        let peopleURL = Constants.getURL(for: .peopleEndpoint)
+        var components = URLComponents(string: peopleURL.absoluteString)
+        let searchQuery = URLQueryItem(name: "search", value: name)
+        
+        components?.queryItems = [searchQuery]
+        
+        let urlString = URL(string: components?.string ?? "")
+        
+        
+        performRequest(url: urlString, callback: { [weak self] result in
             guard let self else { return }
             
             struct Data: Decodable {
                 let results: [People]
-                
-                
             }
+            
+            
+            
             switch result {
             case .success(let data):
                 do {

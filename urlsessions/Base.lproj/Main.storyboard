@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6S9-bh-XZY">
-                                <rect key="frame" x="156.66666666666666" y="381.66666666666669" width="80" height="88.666666666666686"/>
+                                <rect key="frame" x="152" y="354.66666666666669" width="89" height="143"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-sP-dVs">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="89" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Planets"/>
                                         <connections>
@@ -29,11 +29,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUG-KG-fSb">
-                                        <rect key="frame" x="0.0" y="54.333333333333314" width="80" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="54.333333333333314" width="89" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="People"/>
                                         <connections>
                                             <segue destination="QqK-C4-3vK" kind="show" id="SlP-Ya-ZoZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYS-Nj-psd">
+                                        <rect key="frame" x="0.0" y="108.66666666666663" width="89" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="StarShip"/>
+                                        <connections>
+                                            <segue destination="a06-Mp-007" kind="show" id="mRX-Xf-RLb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -96,6 +104,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khY-4i-zGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2102" y="414"/>
+        </scene>
+        <!--Star Ship View Controller-->
+        <scene sceneID="NAR-Fq-MBq">
+            <objects>
+                <viewController id="a06-Mp-007" customClass="StarShipViewController" customModule="urlsessions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k61-PE-8H9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KcR-Pr-A6H">
+                                <rect key="frame" x="12" y="223" width="369" height="583"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="starShipCell" id="EqM-Zf-AkV">
+                                        <rect key="frame" x="0.0" y="50" width="369" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EqM-Zf-AkV" id="638-rZ-n8o">
+                                            <rect key="frame" x="0.0" y="0.0" width="369" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search by name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Nt-sv-FMQ">
+                                <rect key="frame" x="12" y="115" width="240" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="tVg-Ip-x8I"/>
+                                    <constraint firstAttribute="width" constant="240" id="vqF-tn-nK3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAw-1z-j8F">
+                                <rect key="frame" x="276" y="114.66666666666669" width="93" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Search"/>
+                                <connections>
+                                    <action selector="searchButtonsTapped:" destination="a06-Mp-007" eventType="touchUpInside" id="8bG-Yo-p4W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TTi-T6-qIT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KcR-Pr-A6H" firstAttribute="top" secondItem="TTi-T6-qIT" secondAttribute="top" constant="120" id="6AX-DV-CQB"/>
+                            <constraint firstItem="TTi-T6-qIT" firstAttribute="bottom" secondItem="KcR-Pr-A6H" secondAttribute="bottom" constant="12" id="9uP-mA-YC5"/>
+                            <constraint firstItem="VAw-1z-j8F" firstAttribute="centerY" secondItem="9Nt-sv-FMQ" secondAttribute="centerY" id="cZn-CC-gX3"/>
+                            <constraint firstItem="VAw-1z-j8F" firstAttribute="leading" secondItem="9Nt-sv-FMQ" secondAttribute="trailing" constant="24" id="dhq-iF-66A"/>
+                            <constraint firstItem="9Nt-sv-FMQ" firstAttribute="leading" secondItem="TTi-T6-qIT" secondAttribute="leading" constant="12" id="lMR-hB-eb8"/>
+                            <constraint firstItem="TTi-T6-qIT" firstAttribute="trailing" secondItem="KcR-Pr-A6H" secondAttribute="trailing" constant="12" id="p44-Ym-IVw"/>
+                            <constraint firstItem="KcR-Pr-A6H" firstAttribute="leading" secondItem="TTi-T6-qIT" secondAttribute="leading" constant="12" id="qHh-oO-aiq"/>
+                            <constraint firstItem="TTi-T6-qIT" firstAttribute="trailing" secondItem="VAw-1z-j8F" secondAttribute="trailing" constant="24" id="tqF-51-1cF"/>
+                            <constraint firstItem="9Nt-sv-FMQ" firstAttribute="top" secondItem="TTi-T6-qIT" secondAttribute="top" constant="12" id="vfs-Zh-Uin"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Avn-0P-Jta"/>
+                    <connections>
+                        <outlet property="searchButtonTapped" destination="VAw-1z-j8F" id="aMo-oh-ygO"/>
+                        <outlet property="searchField" destination="9Nt-sv-FMQ" id="0Py-fJ-Pgw"/>
+                        <outlet property="tableView" destination="KcR-Pr-A6H" id="TbU-kA-Ute"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u5o-E4-k9I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066" y="782"/>
         </scene>
         <!--Planets View Controller-->
         <scene sceneID="VGH-Tg-f1T">
