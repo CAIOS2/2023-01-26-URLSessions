@@ -11,12 +11,14 @@ enum Constants: String {
     case baseURL = "http://swapi.dev/api/"
     case planetsEndpoint = "planets/"
     case peopleEndpoint = "people/"
+    case filmsEndPoint = "films/"
     
     static func getURL(for constant: Constants, id: Int? = nil) -> URL {
         var baseEndpointURL = baseURL.rawValue + constant.rawValue
         if let id {
             baseEndpointURL = baseEndpointURL + String(id) + "/"
         }
+        
         return URL(string: baseEndpointURL)!
     }
 }
@@ -28,8 +30,14 @@ class StarWarsAPI {
         case fetchFailed
     }
     
-    private let decoder = JSONDecoder()
+    struct ApiData<T: Decodable>: Decodable {
+        let results: [T]
+    }
+    
+    let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
+
+
 
     // MARK: - Public -
 
@@ -58,14 +66,11 @@ class StarWarsAPI {
 
         performRequest(url: Constants.getURL(for: .peopleEndpoint), callback: { [weak self] result in
             guard let self else { return }
-
-            struct Data: Decodable {
-                let results: [People]
-            }
+            
             switch result {
             case .success(let data):
                 do {
-                    let parsedData = try self.decoder.decode(Data.self, from: data)
+                    let parsedData = try self.decoder.decode(ApiData<People>.self, from: data)
                     completion(.success(parsedData.results))
                 } catch {
                     completion(.failure(.parsingFailed))
@@ -92,6 +97,32 @@ class StarWarsAPI {
                 completion(.failure(failure))
             }
         })
+    }
+    
+    func fetchFilm(withName filmName: String, completion: @escaping (Result<[Film], APIError>) -> Void) {
+        let filmsUrl = Constants.baseURL.rawValue + Constants.filmsEndPoint.rawValue
+        
+        var components = URLComponents(string: filmsUrl)
+        
+        let searchQueryItem = URLQueryItem(name: "search", value: filmName)
+        
+        components?.queryItems = [searchQueryItem]
+        
+        performRequest(url: components?.url) { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let data):
+                do {
+                    let parsedData = try self.decoder.decode(ApiData<Film>.self, from: data)
+                    completion(.success(parsedData.results))
+                } catch {
+                    completion(.failure(.parsingFailed))
+                }
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
+        }
     }
 
     // MARK: - Private -
