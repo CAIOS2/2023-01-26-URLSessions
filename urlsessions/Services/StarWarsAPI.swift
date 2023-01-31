@@ -28,8 +28,12 @@ class StarWarsAPI {
         case fetchFailed
     }
     
-    private let decoder = JSONDecoder()
+    
+    let decoder = JSONDecoder()
     private(set) var task: URLSessionDataTask?
+    
+
+
 
     // MARK: - Public -
     init() {
