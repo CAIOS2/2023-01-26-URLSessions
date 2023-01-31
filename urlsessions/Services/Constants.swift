@@ -12,6 +12,7 @@ enum Constants: String {
     case planetsEndpoint = "planets/"
     case peopleEndpoint = "people/"
     case filmsEndPoint = "films/"
+    case starshipsEndPoint = "starships/"
     
     static func getURL(for constant: Constants, id: Int? = nil) -> URL {
         var baseEndpointURL = baseURL.rawValue + constant.rawValue
