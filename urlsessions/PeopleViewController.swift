@@ -23,36 +23,36 @@ class PeopleViewController: UIViewController {
         super.viewDidLoad()
 
 
-//        SWAPI.fetchPeople(id: 1) { result in
+//        SWAPI.fetchPeople(id: 2) { result in
 //            DispatchQueue.main.async { [weak self] in
 //                guard let self = self else { return }
 //
 //                switch result {
 //                case .success(let people):
-//                    self.peopleNameLabel.text = people.name
-//                    print("Label set")
+////                    self.peopleNameLabel.text = people.name
+//                    print(people)
 //                case .failure(let error):
-//                    self.peopleNameLabel.text = error.localizedDescription
+////                    self.peopleNameLabel.text = error.localizedDescription
 //                    print(error.localizedDescription)
 //                }
 //            }
 //        }
 
-        SWAPI.fetchPeople { result in
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-
-                switch result {
-                case .success(let people):
-                    self.tableData = people
-
-                case .failure(let error):
-                    // Present error and crash app (false always crash with fatal error)
-                    assert(false, "Fetch error!")
-                    print(error.localizedDescription)
-                }
-            }
-        }
+//        SWAPI.fetchPeople { result in
+//            DispatchQueue.main.async { [weak self] in
+//                guard let self = self else { return }
+//
+//                switch result {
+//                case .success(let people):
+//                    self.tableData = people
+//
+//                case .failure(let error):
+//                    // Present error and crash app (false always crash with fatal error)
+//                    assert(false, "Fetch error!")
+//                    print(error.localizedDescription)
+//                }
+//            }
+//        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {

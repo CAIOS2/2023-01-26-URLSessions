@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     let swapi = StarWarsAPI()
-    let starshipApi = StarshipAPI()
+    let starshipAPI = StarshipAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,15 +18,39 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        starshipApi.fetchStarships { result in
-            switch result {
-            case .success(let starships):
-                print(starships)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+
+      
+      starshipAPI.fetchStarships(id: 9) { result in
+          DispatchQueue.main.async { [weak self] in
+              guard let self = self else { return }
+
+              switch result {
+              case .success(let people):
+
+                  print(people)
+              case .failure(let error):
+
+                  print(error.localizedDescription)
+              }
+          }
+      }
+
+
+//      starshipAPI.fetchPeople(nameOrModel: "CR90") { result in
+//
+//        switch result {
+//
+//
+//        case .success(let people):
+//
+//            print(people)
+//        case .failure(let error):
+//
+//            print(error.localizedDescription)
+//        }
+//      }
+
+      
     }
 
     override func viewWillDisappear(_ animated: Bool) {
