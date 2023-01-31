@@ -9,4 +9,8 @@ import Foundation
 
 struct Starship: Decodable {
     let name: String
+    let length: String
+    let crew: String
+    let films: [String]
+    
 }
