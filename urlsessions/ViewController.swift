@@ -26,6 +26,15 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+        
+        swapi.fetchPeople(withName: "Luke") { result in
+            switch result {
+            case .success(let people):
+                print(people)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
