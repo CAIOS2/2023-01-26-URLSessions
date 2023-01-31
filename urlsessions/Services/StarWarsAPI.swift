@@ -62,6 +62,31 @@ class StarWarsAPI: BaseAPI {
             }
         })
     }
+    func fetchPeople (withName name: String, completion: @escaping (Result<[People], APIError>) -> Void) {
+        let peopleUrl = Constants.baseURL.rawValue + Constants.peopleEndpoint.rawValue
+        
+        var components = URLComponents(string: peopleUrl)
+        
+        let searchQueryItem = URLQueryItem(name: "search", value: name)
+        
+        components?.queryItems = [searchQueryItem]
+        
+        performRequest(url: components?.url) { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let data):
+                do {
+                    let parsedData = try self.decoder.decode(ApiData<People>.self, from: data)
+                    completion(.success(parsedData.results))
+                } catch {
+                    completion(.failure(.parsingFailed))
+                }
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
+        }
+    }
     
     func fetchFilm(withName filmName: String, completion: @escaping (Result<[Film], APIError>) -> Void) {
         let filmsUrl = Constants.baseURL.rawValue + Constants.filmsEndPoint.rawValue
@@ -89,26 +114,5 @@ class StarWarsAPI: BaseAPI {
         }
     }
 
-  func fetchPeople(withName peopleName: String, completion: @escaping (Result<[People], APIError>) -> Void) {
-    let peopleUrl = Constants.baseURL.rawValue + Constants.peopleEndpoint.rawValue
-    var components = URLComponents(string: peopleUrl)
-    let searchQueryItem = URLQueryItem(name: "search", value: peopleName)
-    components?.queryItems = [searchQueryItem]
-
-    performRequest(url: components?.url) { [weak self] result in
-      guard let self else { return }
-
-      switch result {
-      case .success(let data):
-          do {
-              let parsedData = try self.decoder.decode(ApiData<People>.self, from: data)
-              completion(.success(parsedData.results))
-          } catch {
-              completion(.failure(.parsingFailed))
-          }
-      case .failure(let failure):
-          completion(.failure(failure))
-      }
-    }
-  }
+  
 }
