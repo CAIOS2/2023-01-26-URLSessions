@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        starshipApi.fetchStarships { result in
+        starshipApi.fetchStarships(id: 3) { result in
             switch result {
             case .success(let starships):
                 print(starships)
@@ -27,6 +27,16 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+        
+        starshipApi.fetchStarships(withQuery: "Star") { result in
+            switch result {
+            case .success(let starships):
+                print(starships.)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
