@@ -38,6 +38,6 @@ class BaseAPI {
                 callback(.failure(.fetchFailed))
             }
         }
-        task?.resume()
+        task?.resume()        
     }
 }
