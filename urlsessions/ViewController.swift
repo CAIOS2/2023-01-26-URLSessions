@@ -28,7 +28,7 @@ class ViewController: UIViewController {
             }
         }
         
-        starshipApi.fetchStarships(id: 2) { result in
+        starshipApi.fetchStarships(id: 3) { result in
             switch result {
             case .success(let starships):
                 print("Starship with ID: 3")
