@@ -26,6 +26,15 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+        
+        swapi.fetchFilm(withName: "Leia") { result in
+            switch result {
+            case .success(let personApi):
+                print(personApi)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {

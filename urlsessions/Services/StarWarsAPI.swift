@@ -75,6 +75,36 @@ class StarWarsAPI {
             }
         })
     }
+    
+    
+    func fetchPeople(withName peopleName: String, completion: @escaping (Result<[People], APIError>) -> Void) {
+        let PersonUrl = Constants.baseURL.rawValue + Constants.filmsEndPoint.rawValue
+    
+        var components = URLComponents(string: PersonUrl)
+        
+        let searchQueryItem = URLQueryItem(name: "search", value: peopleName)
+        
+        components?.queryItems = [searchQueryItem]
+        
+        performRequest(url: components?.url) { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let data):
+                do {
+                    let parsedData = try self.decoder.decode(ApiData<People>.self, from: data)
+                    completion(.success(parsedData.results))
+                } catch {
+                    completion(.failure(.parsingFailed))
+                }
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
+        }
+    }
+
+
+
 
     func fetchPeople(id: Int, completion: @escaping (Result<People, APIError>) -> Void) {
         performRequest(url: Constants.getURL(for: .peopleEndpoint, id: id), callback: { [weak self] result in
