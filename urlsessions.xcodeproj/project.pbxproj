@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3F08EABF2982F65F00272DFB /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08EABE2982F65F00272DFB /* People.swift */; };
 		3F08EAC12982F75E00272DFB /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08EAC02982F75E00272DFB /* PeopleViewController.swift */; };
+		3F8CB0B129898FF900A560A3 /* StarshipAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8CB0B029898FF900A560A3 /* StarshipAPI.swift */; };
+		3F8CB0B32989902C00A560A3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8CB0B22989902C00A560A3 /* Constants.swift */; };
+		3F8CB0B52989908700A560A3 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8CB0B42989908700A560A3 /* BaseAPI.swift */; };
 		A067F0F52981A2630047A21B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F42981A2630047A21B /* AppDelegate.swift */; };
 		A067F0F72981A2630047A21B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F62981A2630047A21B /* SceneDelegate.swift */; };
 		A067F0F92981A2630047A21B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A067F0F82981A2630047A21B /* ViewController.swift */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		3F08EABE2982F65F00272DFB /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		3F08EAC02982F75E00272DFB /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		3F8CB0B029898FF900A560A3 /* StarshipAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StarshipAPI.swift; path = ../StarshipAPI.swift; sourceTree = "<group>"; };
+		3F8CB0B22989902C00A560A3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3F8CB0B42989908700A560A3 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		A067F0F12981A2630047A21B /* urlsessions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = urlsessions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A067F0F42981A2630047A21B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A067F0F62981A2630047A21B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +92,9 @@
 		A067F10C2981B5720047A21B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3F8CB0B22989902C00A560A3 /* Constants.swift */,
+				3F8CB0B42989908700A560A3 /* BaseAPI.swift */,
+				3F8CB0B029898FF900A560A3 /* StarshipAPI.swift */,
 				A067F10A2981B55F0047A21B /* StarWarsAPI.swift */,
 			);
 			path = Services;
@@ -173,12 +182,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A067F1092981B4D10047A21B /* PlanetsViewController.swift in Sources */,
+				3F8CB0B32989902C00A560A3 /* Constants.swift in Sources */,
 				3F08EAC12982F75E00272DFB /* PeopleViewController.swift in Sources */,
+				3F8CB0B129898FF900A560A3 /* StarshipAPI.swift in Sources */,
 				A067F0F92981A2630047A21B /* ViewController.swift in Sources */,
 				A067F0F52981A2630047A21B /* AppDelegate.swift in Sources */,
 				A067F10F2981B9DC0047A21B /* Planet.swift in Sources */,
 				A067F10B2981B55F0047A21B /* StarWarsAPI.swift in Sources */,
 				A067F0F72981A2630047A21B /* SceneDelegate.swift in Sources */,
+				3F8CB0B52989908700A560A3 /* BaseAPI.swift in Sources */,
 				C1867F3F2989798D000FED08 /* Film.swift in Sources */,
 				3F08EABF2982F65F00272DFB /* People.swift in Sources */,
 			);

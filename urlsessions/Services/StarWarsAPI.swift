@@ -6,44 +6,10 @@
 //
 
 import Foundation
-
-enum Constants: String {
-    case baseURL = "http://swapi.dev/api/"
-    case planetsEndpoint = "planets/"
-    case peopleEndpoint = "people/"
-    case filmsEndPoint = "films/"
     
-    static func getURL(for constant: Constants, id: Int? = nil) -> URL {
-        var baseEndpointURL = baseURL.rawValue + constant.rawValue
-        if let id {
-            baseEndpointURL = baseEndpointURL + String(id) + "/"
-        }
-        
-        return URL(string: baseEndpointURL)!
-    }
-}
-
-class StarWarsAPI {
+class StarWarsAPI: BaseAPI {
     
-    enum APIError: Error {
-        case parsingFailed
-        case fetchFailed
-    }
     
-    struct ApiData<T: Decodable>: Decodable {
-        let results: [T]
-    }
-    
-    let decoder = JSONDecoder()
-    private(set) var task: URLSessionDataTask?
-
-
-
-    // MARK: - Public -
-
-  init() {
-    //decoder.keyDecodingStrategy = .convertFromSnakeCase
-  }
 
     func fetchPlanets(id: Int, completion: @escaping (Result<Planet, APIError>) -> Void) {
         performRequest(url: Constants.getURL(for: .planetsEndpoint, id: id), callback: { [weak self] result in
@@ -147,20 +113,4 @@ class StarWarsAPI {
       }
     }
   }
-
-    // MARK: - Private -
-
-    private func performRequest(url: URL?,  callback: @escaping (Result<Data, APIError>) -> Void) {
-        guard let url else { return }
-
-        let session = URLSession(configuration: .default)
-        task = session.dataTask(with: url) { data, response, error in
-            if let data {
-                callback(.success(data))
-            } else {
-                callback(.failure(.fetchFailed))
-            }
-        }
-        task?.resume()
-    }
 }
