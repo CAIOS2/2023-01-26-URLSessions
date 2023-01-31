@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     let swapi = StarWarsAPI()
-    
+    let starshipApi = StarshipAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,23 +19,14 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        swapi.fetchFilm(withName: "hope") { result in
+        starshipApi.fetchStarships { result in
             switch result {
-            case .success(let films):
-                print(films)
+            case .success(let starships):
+                print(starships)
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
-
-      swapi.fetchPeople(withName: "Leia") { result in
-        switch result {
-        case .success(let people):
-          print(people)
-        case .failure(let error):
-          print(error.localizedDescription)
-        }
-      }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
