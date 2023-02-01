@@ -27,6 +27,33 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+      starshipApi.fetchStarships(id: 9){ result in
+        switch result {
+        case .success(let startshipID):
+          print(startshipID)
+        case .failure(let error):
+          print(error.localizedDescription)
+        }
+      }
+
+      starshipApi.fetchStarships(withName: "Star Destroyer") { result in
+        switch result {
+        case .success(let startshipName):
+          print(startshipName)
+        case .failure(let error):
+          print(error.localizedDescription)
+        }
+      }
+
+      starshipApi.fetchStarships(withModel: "DS-1") { result in
+        switch result {
+        case .success(let starshipModel):
+          print(starshipModel)
+        case .failure(let error):
+          print(error.localizedDescription)
+        }
+      }
+      
     }
 
     override func viewWillDisappear(_ animated: Bool) {
